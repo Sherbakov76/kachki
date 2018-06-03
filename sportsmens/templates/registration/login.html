@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css" />
+</head>
+<body class=" login">
+<div id="container">
+    <div id="header">
+        <div id="branding">
+<h1><a href="/admin/">Войти как Судья</a></h1>
+        </div>
+    </div>
+    <div id="content" class="colM">
+<div id="content-main">
+<form method="post" action="/login/">
+    {% csrf_token %}
+  <div class="form-row">
+
+    <label>Имя пользователя:</label> <td>{{ form.username }}</td>
+  </div>
+  <div class="form-row">
+    <label>Пароль:</label>
+    <td>{{ form.password }}</td>
+  </div>
+  <div class="submit-row">
+      <input type="submit" value="login" />
+      <input type="hidden" name="next" value="{{ next }}" />
+  </div>
+</form>
+
+</div>
+        <br class="clear" />
+    </div>
+</div>
+</body>
+<footer>
+    <div class="form-row" style="text-align: center; margin-top: 200px">
+        <a href="">Войти как администратор</h1>
+    </div>
+</footer>
+
+
+
